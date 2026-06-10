@@ -1,0 +1,12 @@
+node_modules/
+dist/
+out/
+*.vsix
+.vscode-test/
+.DS_Store
+*.log
+tempDir/
+
+# generated sample exports
+samples/*
+!samples/kitchen-sink.md

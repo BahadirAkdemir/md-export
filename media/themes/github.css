@@ -1,0 +1,144 @@
+/* GitHub-style markdown theme — derived from github-markdown-css spirit, hand-tuned for print. */
+:root {
+  --md-fg: #1f2328;
+  --md-fg-muted: #59636e;
+  --md-bg: #ffffff;
+  --md-border: #d1d9e0;
+  --md-border-muted: #d8dee4;
+  --md-accent: #0969da;
+  --md-code-bg: #f6f8fa;
+  --md-quote-fg: #59636e;
+  --md-quote-border: #d1d9e0;
+}
+
+html, body {
+  background: var(--md-bg);
+  color: var(--md-fg);
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Noto Sans", Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji";
+  font-size: 16px;
+  line-height: 1.5;
+  margin: 0;
+  padding: 0;
+  word-wrap: break-word;
+}
+
+body {
+  max-width: 880px;
+  margin: 0 auto;
+  padding: 32px 40px;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  margin-top: 24px;
+  margin-bottom: 16px;
+  font-weight: 600;
+  line-height: 1.25;
+}
+h1 { font-size: 2em;    border-bottom: 1px solid var(--md-border-muted); padding-bottom: 0.3em; }
+h2 { font-size: 1.5em;  border-bottom: 1px solid var(--md-border-muted); padding-bottom: 0.3em; }
+h3 { font-size: 1.25em; }
+h4 { font-size: 1em; }
+h5 { font-size: 0.875em; }
+h6 { font-size: 0.85em; color: var(--md-fg-muted); }
+
+a { color: var(--md-accent); text-decoration: none; }
+a:hover { text-decoration: underline; }
+/* rehype-autolink-headings wraps headings in <a>; keep the heading color */
+h1 a, h2 a, h3 a, h4 a, h5 a, h6 a { color: inherit; text-decoration: none; }
+
+p, blockquote, ul, ol, dl, table, pre { margin-top: 0; margin-bottom: 16px; }
+
+hr {
+  border: 0;
+  border-top: 1px solid var(--md-border-muted);
+  margin: 24px 0;
+}
+
+blockquote {
+  color: var(--md-quote-fg);
+  border-left: 0.25em solid var(--md-quote-border);
+  padding: 0 1em;
+  margin-left: 0;
+}
+
+ul, ol { padding-left: 2em; }
+li + li { margin-top: 0.25em; }
+ul.contains-task-list { padding-left: 1.25em; list-style: none; }
+ul.contains-task-list li { padding-left: 0; }
+input[type="checkbox"] { margin-right: 0.4em; }
+
+code, kbd, pre, samp {
+  font-family: ui-monospace, SFMono-Regular, "SF Mono", Menlo, Consolas, "Liberation Mono", monospace;
+  font-size: 0.875em;
+}
+
+code {
+  background: var(--md-code-bg);
+  padding: 0.2em 0.4em;
+  border-radius: 6px;
+}
+
+pre {
+  background: var(--md-code-bg);
+  border-radius: 6px;
+  padding: 16px;
+  overflow: auto;
+  line-height: 1.45;
+}
+pre code {
+  background: transparent;
+  padding: 0;
+  border-radius: 0;
+  white-space: pre;
+}
+
+table {
+  border-collapse: collapse;
+  display: block;
+  overflow: auto;
+  width: max-content;
+  max-width: 100%;
+}
+table th, table td {
+  border: 1px solid var(--md-border);
+  padding: 6px 13px;
+}
+table th { background: var(--md-code-bg); font-weight: 600; }
+table tr:nth-child(2n) { background: var(--md-code-bg); }
+
+img {
+  max-width: 100%;
+  height: auto;
+  background: var(--md-bg);
+}
+
+del { color: var(--md-fg-muted); }
+
+/* Footnotes */
+.footnotes {
+  font-size: 0.875em;
+  color: var(--md-fg-muted);
+  border-top: 1px solid var(--md-border-muted);
+  margin-top: 32px;
+  padding-top: 16px;
+}
+
+/* TOC */
+.toc {
+  background: var(--md-code-bg);
+  border: 1px solid var(--md-border);
+  border-radius: 6px;
+  padding: 8px 16px;
+  margin-bottom: 24px;
+}
+.toc ol { padding-left: 1.25em; }
+
+/* KaTeX block math */
+.katex-display { overflow-x: auto; overflow-y: hidden; padding: 0.25em 0; }
+
+/* Print tweaks */
+@media print {
+  body { max-width: none; padding: 0; }
+  pre, table, blockquote { page-break-inside: avoid; }
+  h1, h2, h3 { page-break-after: avoid; }
+}

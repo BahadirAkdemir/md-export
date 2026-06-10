@@ -1,0 +1,64 @@
+/* Dark theme — for on-screen reading. PDF printers will honor printBackground. */
+:root {
+  --md-fg: #e6edf3;
+  --md-fg-muted: #9198a1;
+  --md-bg: #0d1117;
+  --md-border: #30363d;
+  --md-border-muted: #21262d;
+  --md-accent: #4493f8;
+  --md-code-bg: #161b22;
+  --md-quote-fg: #8d96a0;
+}
+
+html, body {
+  background: var(--md-bg);
+  color: var(--md-fg);
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Noto Sans", Helvetica, Arial, sans-serif;
+  font-size: 16px;
+  line-height: 1.5;
+  margin: 0;
+}
+
+body { max-width: 880px; margin: 0 auto; padding: 32px 40px; }
+
+h1, h2, h3, h4, h5, h6 { font-weight: 600; margin: 24px 0 16px; line-height: 1.25; }
+h1 { font-size: 2em;   border-bottom: 1px solid var(--md-border-muted); padding-bottom: 0.3em; }
+h2 { font-size: 1.5em; border-bottom: 1px solid var(--md-border-muted); padding-bottom: 0.3em; }
+h3 { font-size: 1.25em; }
+
+a { color: var(--md-accent); text-decoration: none; }
+a:hover { text-decoration: underline; }
+h1 a, h2 a, h3 a, h4 a, h5 a, h6 a { color: inherit; }
+
+p, blockquote, ul, ol, dl, table, pre { margin: 0 0 16px; }
+
+blockquote { color: var(--md-quote-fg); border-left: 0.25em solid var(--md-border); padding: 0 1em; margin-left: 0; }
+
+hr { border: 0; border-top: 1px solid var(--md-border-muted); margin: 24px 0; }
+
+code, pre {
+  font-family: ui-monospace, SFMono-Regular, "SF Mono", Menlo, Consolas, monospace;
+  font-size: 0.875em;
+}
+code { background: var(--md-code-bg); padding: 0.2em 0.4em; border-radius: 6px; }
+pre { background: var(--md-code-bg); border-radius: 6px; padding: 16px; overflow: auto; }
+pre code { background: transparent; padding: 0; }
+
+table { border-collapse: collapse; display: block; overflow: auto; max-width: 100%; }
+table th, table td { border: 1px solid var(--md-border); padding: 6px 13px; }
+table th { background: var(--md-code-bg); font-weight: 600; }
+table tr:nth-child(2n) { background: #11161d; }
+
+img { max-width: 100%; height: auto; }
+del { color: var(--md-fg-muted); }
+
+.toc { background: var(--md-code-bg); border: 1px solid var(--md-border); border-radius: 6px; padding: 8px 16px; }
+.toc ol { padding-left: 1.25em; }
+.footnotes { font-size: 0.875em; color: var(--md-fg-muted); border-top: 1px solid var(--md-border-muted); margin-top: 32px; padding-top: 16px; }
+.page-break { page-break-after: always; break-after: page; }
+.katex-display { overflow-x: auto; padding: 0.25em 0; color: var(--md-fg); }
+
+@media print {
+  body { max-width: none; padding: 0; }
+  pre, table, blockquote { page-break-inside: avoid; }
+}
